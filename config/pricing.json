@@ -1,0 +1,785 @@
+{
+  "version": "2026-11-01",
+  "currency": "INR",
+  "gst": {
+    "rate": 0.18,
+    "split": {
+      "cgst": 0.09,
+      "sgst": 0.09
+    }
+  },
+  "services": [
+    {
+      "id": "elderly",
+      "label": {
+        "en": "Elderly care",
+        "hi": "बुज़ुर्गों की देखभाल"
+      },
+      "description": {
+        "en": "Daily living support, mobility, medication reminders and companionship.",
+        "hi": "रोज़मर्रा की मदद, चलने-फिरने में सहारा, दवा की याद और साथ।"
+      },
+      "staff": {
+        "en": "Trained caregiver",
+        "hi": "प्रशिक्षित केयरगिवर"
+      }
+    },
+    {
+      "id": "dementia",
+      "label": {
+        "en": "Alzheimer's & dementia care",
+        "hi": "अल्ज़ाइमर और डिमेंशिया देखभाल"
+      },
+      "description": {
+        "en": "Caregivers trained in memory care, routines and wandering safety.",
+        "hi": "याददाश्त से जुड़ी देखभाल और सुरक्षा में प्रशिक्षित केयरगिवर।"
+      },
+      "staff": {
+        "en": "Dementia-trained caregiver",
+        "hi": "डिमेंशिया-प्रशिक्षित केयरगिवर"
+      }
+    },
+    {
+      "id": "baby",
+      "label": {
+        "en": "Baby care",
+        "hi": "शिशु देखभाल"
+      },
+      "description": {
+        "en": "Newborn and infant care, feeding support and mother care after delivery.",
+        "hi": "नवजात और शिशु की देखभाल, फ़ीडिंग और प्रसव के बाद माँ की देखभाल।"
+      },
+      "staff": {
+        "en": "Baby care specialist",
+        "hi": "शिशु देखभाल विशेषज्ञ"
+      }
+    },
+    {
+      "id": "post_surgery",
+      "label": {
+        "en": "Recovery after surgery",
+        "hi": "सर्जरी के बाद रिकवरी"
+      },
+      "description": {
+        "en": "Nurse-led care after a hospital stay: wound care, vitals, mobility.",
+        "hi": "अस्पताल से लौटने के बाद नर्स द्वारा देखभाल: घाव, वाइटल्स, मूवमेंट।"
+      },
+      "staff": {
+        "en": "Registered nurse (GNM/ANM)",
+        "hi": "पंजीकृत नर्स (GNM/ANM)"
+      }
+    }
+  ],
+  "shiftTypes": [
+    {
+      "id": "day",
+      "label": {
+        "en": "Day shift",
+        "hi": "डे शिफ़्ट"
+      },
+      "description": {
+        "en": "Caregiver comes in for the chosen hours. 24 hours means two 12-hour shifts.",
+        "hi": "केयरगिवर चुने गए घंटों के लिए आएगा। 24 घंटे = दो 12-घंटे की शिफ़्ट।"
+      }
+    },
+    {
+      "id": "live_in",
+      "label": {
+        "en": "Live-in",
+        "hi": "लिव-इन"
+      },
+      "description": {
+        "en": "One caregiver stays at home with breaks and sleep time. Needs a place to rest.",
+        "hi": "एक केयरगिवर घर पर रहेगा, आराम और नींद के समय के साथ। रहने की जगह चाहिए।"
+      }
+    }
+  ],
+  "hours": [
+    8,
+    12,
+    24
+  ],
+  "durations": [
+    {
+      "id": "1w",
+      "days": 7,
+      "label": {
+        "en": "1 week",
+        "hi": "1 सप्ताह"
+      }
+    },
+    {
+      "id": "2w",
+      "days": 14,
+      "label": {
+        "en": "2 weeks",
+        "hi": "2 सप्ताह"
+      }
+    },
+    {
+      "id": "1m",
+      "days": 30,
+      "label": {
+        "en": "1 month",
+        "hi": "1 महीना"
+      }
+    },
+    {
+      "id": "3m",
+      "days": 90,
+      "label": {
+        "en": "3 months",
+        "hi": "3 महीने"
+      }
+    },
+    {
+      "id": "6m",
+      "days": 180,
+      "label": {
+        "en": "6 months",
+        "hi": "6 महीने"
+      }
+    }
+  ],
+  "customDays": {
+    "min": 1,
+    "max": 365
+  },
+  "longStayDiscounts": [
+    {
+      "minDays": 30,
+      "rate": 0.03
+    },
+    {
+      "minDays": 90,
+      "rate": 0.06
+    },
+    {
+      "minDays": 180,
+      "rate": 0.1
+    }
+  ],
+  "oneTimeFees": [
+    {
+      "id": "onboarding",
+      "label": {
+        "en": "Care assessment & onboarding",
+        "hi": "देखभाल आकलन और ऑनबोर्डिंग"
+      },
+      "amount": 999,
+      "waivedFromDays": 30
+    }
+  ],
+  "addOns": [
+    {
+      "id": "physio",
+      "label": {
+        "en": "Physiotherapy home visit",
+        "hi": "फ़िज़ियोथेरेपी होम विज़िट"
+      },
+      "unit": "visit",
+      "price": 800,
+      "frequency": {
+        "min": 1,
+        "max": 7,
+        "default": 3
+      },
+      "appliesTo": [
+        "elderly",
+        "dementia",
+        "post_surgery"
+      ]
+    },
+    {
+      "id": "nurse_visit",
+      "label": {
+        "en": "Nurse visit (injections, dressing, vitals)",
+        "hi": "नर्स विज़िट (इंजेक्शन, ड्रेसिंग, वाइटल्स)"
+      },
+      "unit": "visit",
+      "price": 600,
+      "frequency": {
+        "min": 1,
+        "max": 7,
+        "default": 2
+      },
+      "appliesTo": [
+        "elderly",
+        "dementia",
+        "baby"
+      ]
+    },
+    {
+      "id": "doctor_visit",
+      "label": {
+        "en": "Doctor home consultation",
+        "hi": "डॉक्टर होम कंसल्टेशन"
+      },
+      "unit": "visit",
+      "price": 1200,
+      "frequency": {
+        "min": 1,
+        "max": 2,
+        "default": 1
+      },
+      "appliesTo": [
+        "elderly",
+        "dementia",
+        "post_surgery"
+      ]
+    },
+    {
+      "id": "lactation",
+      "label": {
+        "en": "Lactation consultant visit",
+        "hi": "लैक्टेशन कंसल्टेंट विज़िट"
+      },
+      "unit": "visit",
+      "price": 1500,
+      "frequency": {
+        "min": 1,
+        "max": 3,
+        "default": 1
+      },
+      "appliesTo": [
+        "baby"
+      ]
+    },
+    {
+      "id": "hospital_bed",
+      "label": {
+        "en": "Hospital bed rental",
+        "hi": "हॉस्पिटल बेड किराया"
+      },
+      "unit": "month",
+      "price": 3500,
+      "appliesTo": [
+        "elderly",
+        "dementia",
+        "post_surgery"
+      ]
+    },
+    {
+      "id": "oxygen",
+      "label": {
+        "en": "Oxygen concentrator rental",
+        "hi": "ऑक्सीजन कंसन्ट्रेटर किराया"
+      },
+      "unit": "month",
+      "price": 5500,
+      "appliesTo": [
+        "elderly",
+        "dementia",
+        "post_surgery"
+      ]
+    },
+    {
+      "id": "lab_tests",
+      "label": {
+        "en": "Lab sample collection at home",
+        "hi": "घर पर लैब सैंपल कलेक्शन"
+      },
+      "unit": "once",
+      "price": 499,
+      "appliesTo": [
+        "elderly",
+        "dementia",
+        "baby",
+        "post_surgery"
+      ]
+    },
+    {
+      "id": "meals",
+      "label": {
+        "en": "Meal preparation for the patient",
+        "hi": "मरीज़ के लिए खाना बनाना"
+      },
+      "unit": "day",
+      "price": 150,
+      "appliesTo": [
+        "elderly",
+        "dementia",
+        "post_surgery"
+      ]
+    }
+  ],
+  "cities": [
+    {
+      "id": "delhi-ncr",
+      "label": {
+        "en": "Delhi NCR",
+        "hi": "दिल्ली एनसीआर"
+      },
+      "rates": {
+        "elderly": {
+          "day": {
+            "8": 850,
+            "12": 1100,
+            "24": 2000
+          },
+          "live_in": {
+            "12": 900,
+            "24": 1150
+          }
+        },
+        "dementia": {
+          "day": {
+            "8": 1050,
+            "12": 1350,
+            "24": 2500
+          },
+          "live_in": {
+            "12": 1100,
+            "24": 1400
+          }
+        },
+        "baby": {
+          "day": {
+            "8": 900,
+            "12": 1200,
+            "24": 2150
+          },
+          "live_in": {
+            "12": 950,
+            "24": 1250
+          }
+        },
+        "post_surgery": {
+          "day": {
+            "8": 1400,
+            "12": 1800,
+            "24": 3400
+          },
+          "live_in": {
+            "12": 1700,
+            "24": 2200
+          }
+        }
+      }
+    },
+    {
+      "id": "mumbai",
+      "label": {
+        "en": "Mumbai",
+        "hi": "मुंबई"
+      },
+      "rates": {
+        "elderly": {
+          "day": {
+            "8": 1000,
+            "12": 1250,
+            "24": 2300
+          },
+          "live_in": {
+            "12": 1050,
+            "24": 1300
+          }
+        },
+        "dementia": {
+          "day": {
+            "8": 1200,
+            "12": 1550,
+            "24": 2900
+          },
+          "live_in": {
+            "12": 1250,
+            "24": 1600
+          }
+        },
+        "baby": {
+          "day": {
+            "8": 1050,
+            "12": 1400,
+            "24": 2450
+          },
+          "live_in": {
+            "12": 1100,
+            "24": 1450
+          }
+        },
+        "post_surgery": {
+          "day": {
+            "8": 1600,
+            "12": 2050,
+            "24": 3900
+          },
+          "live_in": {
+            "12": 1950,
+            "24": 2550
+          }
+        }
+      }
+    },
+    {
+      "id": "bengaluru",
+      "label": {
+        "en": "Bengaluru",
+        "hi": "बेंगलुरु"
+      },
+      "rates": {
+        "elderly": {
+          "day": {
+            "8": 950,
+            "12": 1200,
+            "24": 2200
+          },
+          "live_in": {
+            "12": 1000,
+            "24": 1250
+          }
+        },
+        "dementia": {
+          "day": {
+            "8": 1150,
+            "12": 1500,
+            "24": 2750
+          },
+          "live_in": {
+            "12": 1200,
+            "24": 1550
+          }
+        },
+        "baby": {
+          "day": {
+            "8": 1000,
+            "12": 1300,
+            "24": 2350
+          },
+          "live_in": {
+            "12": 1050,
+            "24": 1400
+          }
+        },
+        "post_surgery": {
+          "day": {
+            "8": 1550,
+            "12": 2000,
+            "24": 3750
+          },
+          "live_in": {
+            "12": 1850,
+            "24": 2400
+          }
+        }
+      }
+    },
+    {
+      "id": "pune",
+      "label": {
+        "en": "Pune",
+        "hi": "पुणे"
+      },
+      "rates": {
+        "elderly": {
+          "day": {
+            "8": 850,
+            "12": 1100,
+            "24": 2000
+          },
+          "live_in": {
+            "12": 900,
+            "24": 1150
+          }
+        },
+        "dementia": {
+          "day": {
+            "8": 1050,
+            "12": 1350,
+            "24": 2500
+          },
+          "live_in": {
+            "12": 1100,
+            "24": 1400
+          }
+        },
+        "baby": {
+          "day": {
+            "8": 900,
+            "12": 1200,
+            "24": 2150
+          },
+          "live_in": {
+            "12": 950,
+            "24": 1250
+          }
+        },
+        "post_surgery": {
+          "day": {
+            "8": 1400,
+            "12": 1800,
+            "24": 3400
+          },
+          "live_in": {
+            "12": 1700,
+            "24": 2200
+          }
+        }
+      }
+    },
+    {
+      "id": "hyderabad",
+      "label": {
+        "en": "Hyderabad",
+        "hi": "हैदराबाद"
+      },
+      "rates": {
+        "elderly": {
+          "day": {
+            "8": 800,
+            "12": 1050,
+            "24": 1900
+          },
+          "live_in": {
+            "12": 850,
+            "24": 1100
+          }
+        },
+        "dementia": {
+          "day": {
+            "8": 1000,
+            "12": 1300,
+            "24": 2400
+          },
+          "live_in": {
+            "12": 1050,
+            "24": 1350
+          }
+        },
+        "baby": {
+          "day": {
+            "8": 850,
+            "12": 1150,
+            "24": 2050
+          },
+          "live_in": {
+            "12": 900,
+            "24": 1200
+          }
+        },
+        "post_surgery": {
+          "day": {
+            "8": 1350,
+            "12": 1700,
+            "24": 3250
+          },
+          "live_in": {
+            "12": 1600,
+            "24": 2100
+          }
+        }
+      }
+    },
+    {
+      "id": "chennai",
+      "label": {
+        "en": "Chennai",
+        "hi": "चेन्नई"
+      },
+      "rates": {
+        "elderly": {
+          "day": {
+            "8": 800,
+            "12": 1050,
+            "24": 1900
+          },
+          "live_in": {
+            "12": 850,
+            "24": 1100
+          }
+        },
+        "dementia": {
+          "day": {
+            "8": 1000,
+            "12": 1300,
+            "24": 2400
+          },
+          "live_in": {
+            "12": 1050,
+            "24": 1350
+          }
+        },
+        "baby": {
+          "day": {
+            "8": 850,
+            "12": 1150,
+            "24": 2050
+          },
+          "live_in": {
+            "12": 900,
+            "24": 1200
+          }
+        },
+        "post_surgery": {
+          "day": {
+            "8": 1350,
+            "12": 1700,
+            "24": 3250
+          },
+          "live_in": {
+            "12": 1600,
+            "24": 2100
+          }
+        }
+      }
+    },
+    {
+      "id": "kolkata",
+      "label": {
+        "en": "Kolkata",
+        "hi": "कोलकाता"
+      },
+      "rates": {
+        "elderly": {
+          "day": {
+            "8": 700,
+            "12": 950,
+            "24": 1700
+          },
+          "live_in": {
+            "12": 750,
+            "24": 1000
+          }
+        },
+        "dementia": {
+          "day": {
+            "8": 900,
+            "12": 1150,
+            "24": 2150
+          },
+          "live_in": {
+            "12": 950,
+            "24": 1200
+          }
+        },
+        "baby": {
+          "day": {
+            "8": 750,
+            "12": 1000,
+            "24": 1850
+          },
+          "live_in": {
+            "12": 800,
+            "24": 1050
+          }
+        },
+        "post_surgery": {
+          "day": {
+            "8": 1200,
+            "12": 1550,
+            "24": 2900
+          },
+          "live_in": {
+            "12": 1450,
+            "24": 1850
+          }
+        }
+      }
+    },
+    {
+      "id": "jaipur",
+      "label": {
+        "en": "Jaipur",
+        "hi": "जयपुर"
+      },
+      "rates": {
+        "elderly": {
+          "day": {
+            "8": 700,
+            "12": 900,
+            "24": 1600
+          },
+          "live_in": {
+            "12": 700,
+            "24": 900
+          }
+        },
+        "dementia": {
+          "day": {
+            "8": 850,
+            "12": 1100,
+            "24": 2000
+          },
+          "live_in": {
+            "12": 900,
+            "24": 1100
+          }
+        },
+        "baby": {
+          "day": {
+            "8": 700,
+            "12": 950,
+            "24": 1700
+          },
+          "live_in": {
+            "12": 750,
+            "24": 1000
+          }
+        },
+        "post_surgery": {
+          "day": {
+            "8": 1100,
+            "12": 1450,
+            "24": 2700
+          },
+          "live_in": {
+            "12": 1350,
+            "24": 1750
+          }
+        }
+      }
+    },
+    {
+      "id": "lucknow",
+      "label": {
+        "en": "Lucknow",
+        "hi": "लखनऊ"
+      },
+      "rates": {
+        "elderly": {
+          "day": {
+            "8": 700,
+            "12": 900,
+            "24": 1600
+          },
+          "live_in": {
+            "12": 700,
+            "24": 900
+          }
+        },
+        "dementia": {
+          "day": {
+            "8": 850,
+            "12": 1100,
+            "24": 2000
+          },
+          "live_in": {
+            "12": 900,
+            "24": 1100
+          }
+        },
+        "baby": {
+          "day": {
+            "8": 700,
+            "12": 950,
+            "24": 1700
+          },
+          "live_in": {
+            "12": 750,
+            "24": 1000
+          }
+        },
+        "post_surgery": {
+          "day": {
+            "8": 1100,
+            "12": 1450,
+            "24": 2700
+          },
+          "live_in": {
+            "12": 1350,
+            "24": 1750
+          }
+        }
+      }
+    }
+  ]
+}
