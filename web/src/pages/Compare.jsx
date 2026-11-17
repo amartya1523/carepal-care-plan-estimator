@@ -37,6 +37,13 @@ export function Compare() {
     ['addons', (d) => (d.addOns.length ? d.addOns.join(', ') : t('none'))],
   ];
 
+  // Highlight the rows where the two plans differ, so the trade-off is obvious.
+  const differs = (key) => {
+    if (!a || !b) return false;
+    const get = rows.find(([k]) => k === key)[1];
+    return get(describePlan(slots.A, config, lang), slots.A, a) !== get(describePlan(slots.B, config, lang), slots.B, b);
+  };
+
   const column = (slot, plan, estimate) => {
     if (!plan || !estimate) {
       return (
@@ -64,7 +71,7 @@ export function Compare() {
         </div>
         <dl className="compare-facts">
           {rows.map(([key, get]) => (
-            <div key={key}><dt>{t(key)}</dt><dd>{get(d, plan, estimate)}</dd></div>
+            <div key={key} className={differs(key) ? 'is-diff' : ''}><dt>{t(key)}</dt><dd>{get(d, plan, estimate)}</dd></div>
           ))}
         </dl>
         <details className="compare-details">

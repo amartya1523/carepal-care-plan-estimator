@@ -374,3 +374,5 @@ h2:focus { outline: none; }
 .compare-details summary { cursor: pointer; color: var(--brand); font-weight: 700; padding: 6px 0; }
 .compare-col-actions { margin-top: auto; padding-top: 12px; }
 .compare-col-actions .btn { width: 100%; }
+.compare-facts .is-diff dd { color: var(--accent); }
+.compare-facts .is-diff dt::after { content: ' •'; color: var(--accent); }
