@@ -10,7 +10,10 @@ export function createAuth({ username, password, sessionSecret, sessionHours }) 
   return {
     checkCredentials(user, pass) {
       if (!password || !sessionSecret) return false; // admin disabled until configured
-      return safeEqual(user, username) & safeEqual(pass, password); // bitwise & so both always run
+      // evaluate both so a wrong username takes as long as a wrong password
+      const userOk = safeEqual(user, username);
+      const passOk = safeEqual(pass, password);
+      return userOk && passOk;
     },
 
     issueToken() {
