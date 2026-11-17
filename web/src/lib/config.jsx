@@ -7,11 +7,11 @@ const ConfigContext = createContext(null);
 export function ConfigProvider({ children }) {
   const [state, setState] = useState({ config: null, error: null });
 
+  // Reloads keep the current config on screen until the new one arrives.
   const loadConfig = useCallback(() => {
-    setState({ config: null, error: null });
     api('/config')
       .then((config) => setState({ config, error: null }))
-      .catch((error) => setState({ config: null, error }));
+      .catch((error) => setState((s) => ({ config: s.config, error: s.config ? null : error })));
   }, []);
 
   useEffect(loadConfig, [loadConfig]);
