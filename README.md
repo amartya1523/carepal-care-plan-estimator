@@ -88,14 +88,14 @@ npm run build && npm start   # http://localhost:4000
 ```mermaid
 flowchart LR
   subgraph Browser["React app (Vite)"]
-    F[Step form] --> E[shared/pricing.js<br/>live estimate]
+    F[Step form] --> E["shared/pricing.js<br/>live estimate"]
     E --> L[Lead form]
-    A[Admin: leads, CSV, price list]
+    A["Admin: leads, CSV, price list"]
   end
   subgraph API["Express API"]
-    C[GET /api/config]
-    P[POST /api/leads<br/>validate + recompute]
-    AD[/api/admin/*<br/>token auth/]
+    C["GET /api/config"]
+    P["POST /api/leads<br/>validate + recompute"]
+    AD["/api/admin/*<br/>token auth"]
   end
   J[(config/pricing.json)]
   DB[(SQLite leads)]
