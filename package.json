@@ -13,7 +13,7 @@
     "dev:web": "npm run dev --prefix web",
     "build": "npm run build --prefix web",
     "start": "npm start --prefix server",
-    "seed": "npm run seed --prefix server",
+    "seed": "npm run seed --prefix server --",
     "test": "node --test 'shared/test/*.test.js' && npm test --prefix server"
   },
   "license": "MIT"
