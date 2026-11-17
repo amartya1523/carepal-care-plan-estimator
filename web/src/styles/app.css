@@ -350,3 +350,29 @@ h2:focus { outline: none; }
 .rate-input { width: 96px; padding: 7px 10px; border: 1.5px solid var(--line); border-radius: 8px; font-variant-numeric: tabular-nums; font-size: 14px; }
 .rate-input.is-changed { border-color: #e2b23c; background: #fffaeb; }
 .rate-input.is-invalid { border-color: var(--danger); background: #fdecea; }
+
+/* Compare */
+.compare-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.compare-head h1 { font-size: 24px; font-weight: 800; }
+.compare-verdict { display: flex; gap: 8px; align-items: center; background: var(--brand-50); color: var(--brand-600); font-weight: 700; padding: 12px 14px; border-radius: var(--radius-sm); margin: 0 0 14px; }
+.compare-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (min-width: 700px) { .compare-grid { gap: 20px; } }
+.compare-col { padding: 14px 12px; display: flex; flex-direction: column; min-width: 0; }
+@media (min-width: 700px) { .compare-col { padding: 20px; } }
+.compare-col--empty { align-items: center; justify-content: center; text-align: center; color: var(--ink-3); border-style: dashed; min-height: 240px; gap: 10px; font-size: 14px; }
+.compare-col-head { display: flex; justify-content: space-between; align-items: center; }
+.compare-slot { width: 32px; height: 32px; border-radius: 10px; background: var(--ink); color: #fff; font-weight: 800; display: grid; place-items: center; }
+.link-btn { border: 0; background: none; color: var(--ink-3); font-size: 13px; text-decoration: underline; padding: 4px; }
+.compare-total { margin: 12px 0; display: flex; flex-direction: column; }
+.compare-total strong { font-size: clamp(20px, 5vw, 28px); font-weight: 800; color: var(--brand); font-variant-numeric: tabular-nums; }
+.compare-total small { color: var(--ink-3); font-size: 12px; }
+.compare-facts { margin: 0; font-size: 13.5px; }
+.compare-facts div { padding: 8px 0; border-top: 1px solid var(--line); }
+.compare-facts dt { color: var(--ink-3); font-size: 12px; }
+.compare-facts dd { margin: 0; font-weight: 600; word-break: break-word; }
+.compare-details { margin-top: 10px; font-size: 13px; }
+.compare-details summary { cursor: pointer; color: var(--brand); font-weight: 700; padding: 6px 0; }
+.compare-col-actions { margin-top: auto; padding-top: 12px; }
+.compare-col-actions .btn { width: 100%; }
+.compare-facts .is-diff dd { color: var(--accent); }
+.compare-facts .is-diff dt::after { content: ' •'; color: var(--accent); }
