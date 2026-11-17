@@ -16,5 +16,5 @@ export function toCsvValue(value) {
 export function toCsv(columns, rows) {
   const header = columns.map((c) => toCsvValue(c.header)).join(',');
   const body = rows.map((row) => columns.map((c) => toCsvValue(c.value(row))).join(','));
-  return `﻿${[header, ...body].join('\r\n')}\r\n`;
+  return `\uFEFF${[header, ...body].join('\r\n')}\r\n`;
 }
