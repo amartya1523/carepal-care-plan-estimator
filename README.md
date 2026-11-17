@@ -7,7 +7,7 @@ page with every lead, a CSV export and an editor for the price list.
 
 Built for TheCarePal assignment **FS-01** with React (Vite), Node.js (Express) and SQLite.
 
-> **Demo video:** _link added in the submission form_
+> **Demo video (4 min):** https://drive.google.com/file/d/1cJzHq0bJzmGpIhIeA078rPp9REwoshzH/view?usp=sharing
 > **Stack:** React 19 · Vite · Express 5 · SQLite (`node:sqlite`) · plain CSS · `node:test`
 
 | Builder with live estimate | Phone (360px) | Admin |
